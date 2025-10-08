@@ -69,3 +69,13 @@ SysId is included with the WPILib Installer.
 ## Launching the SysId Tool
 
 The system identification tool can be opened from the ``Start Tool`` option in VS Code or by using the shortcut inside the WPILib Tools desktop folder (Windows).
+
+## Manual Tuning Alternative
+
+While the SysId tool provides accurate feedforward gains through automated system identification, it is also possible to manually tune these gains as a starting point:
+
+- **Ks (Static Friction Voltage)**: The approximate voltage needed to overcome static friction and make the mechanism start moving. While this is technically the voltage to overcome dynamic friction during motion, it provides a useful starting point.
+- **Kv (Velocity Gain)**: Can be approximated as ``(12V - Ks) / max_velocity``. A more accurate method is to perform a steady-state voltage-velocity line fit by measuring velocity at different constant voltages, which gives Kv as the slope and Ks as the y-intercept: ``voltage = Ks + Kv × velocity``.
+- **Ka (Acceleration Gain)**: This gain can be challenging to tune manually. Start with the feedforward using only Ks and Kv, then adjust Ka until the mechanism follows a trapezoidal motion profile accurately. Ka can often be set to zero unless the mechanism requires significant voltage to accelerate.
+
+.. note:: Manual tuning is a reasonable starting point for simple mechanisms, but the automated SysId process will generally provide more accurate results, especially for Ka.

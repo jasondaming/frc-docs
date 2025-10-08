@@ -2,12 +2,19 @@
 
 ## Types of Tests
 
-A standard motor identification routine consists of two types of tests:
+A standard motor identification procedure consists of two types of tests:
 
 - **Quasistatic:** In this test, the mechanism is gradually sped-up such that the voltage corresponding to acceleration is negligible (hence, "as if static").
 - **Dynamic:** In this test, a constant 'step voltage' is given to the mechanism, so that the behavior while accelerating can be determined.
 
-Each test type is run both forwards and backwards, for four tests in total. The tests can be run in any order, but running a "backwards" test directly after a "forwards" test is generally advisable (as it will more or less reset the mechanism to its original position). ``SysIdRoutine`` provides command factories that may be used to run the tests, for example as part of an autonomous routine. Previous versions of SysId used a project generator to create and deploy robot code to run these tests, but it proved to be very fragile and difficult to maintain. The user code-based workflow enables teams to use mechanism code they already know works, including soft and hard limits.
+Each test type is run both forwards and backwards, for four tests in total, resulting in the following test states that are logged:
+
+- ``quasistatic-forward``
+- ``quasistatic-reverse``
+- ``dynamic-forward``
+- ``dynamic-reverse``
+
+The tests can be run in any order, but running a "backwards" test directly after a "forwards" test is generally advisable (as it will more or less reset the mechanism to its original position). ``SysIdRoutine`` provides command factories that may be used to run the tests, for example as part of an autonomous routine. Previous versions of SysId used a project generator to create and deploy robot code to run these tests, but it proved to be very fragile and difficult to maintain. The user code-based workflow enables teams to use mechanism code they already know works, including soft and hard limits.
 
 ## User Code Setup
 

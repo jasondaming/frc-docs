@@ -17,7 +17,11 @@ Now the ``Data Selector`` pane will present ``Position``, ``Velocity``, and ``Vo
 .. image:: images/entries-selected.png
     :alt: The Data Selector pane after the Position, Velocity, and Voltage entries have been selected
 
-Ideally, the correct units for the position and velocity entries would have been set in the code before running the tests. If this was not the case, use the Units dropdown in the ``Data Selector`` pane to correct it. Additionally, if you did not account for a gear ratio or some other factor that scales the recorded values up or down uniformly, you can compensate for that by setting position and velocity scaling factors in the provided boxes.
+Ideally, the correct units for the position and velocity entries would have been set in the code before running the tests. If this was not the case, use the Units dropdown in the ``Data Selector`` pane to correct it.
+
+.. important:: The units selected here should match the units used by your sensors and controllers in the robot code. The units dropdown is only used for labeling the calculated gains - it does not perform unit conversions on the data itself.
+
+Additionally, if you did not account for a gear ratio or some other factor that scales the recorded values up or down uniformly, you can compensate for that by setting position and velocity scaling factors in the provided boxes.
 
 .. image:: images/scaling-units.png
     :alt: Unit adjustment and scaling controls

@@ -4,7 +4,7 @@ Once the code has been deployed, we can now run the system identification routin
 
 .. note:: Ensure you have sufficient space around the robot before running any identification routine! The drive identification requires at least 10' of space, ideally closer to 20'. The robot drive can not be accurately characterized while on blocks.
 
-.. warning:: Only log files with a single routine in them are usable for analysis. Multiple motors can be run in one routine, but they must be run at the same time. If you run a routine on one motor and then run a routine on another motor without extracting the log or power-cycling the roboRIO in between, analysis will fail.
+.. warning:: Only log files with a single complete test procedure in them are usable for analysis. A complete test procedure includes all four tests (quasistatic forward/reverse and dynamic forward/reverse). Multiple motors can be characterized together, but they must be run at the same time. If you run a complete test procedure on one motor and then run another test procedure on a different motor without extracting the log or power-cycling the roboRIO in between, analysis will fail.
 
 ## Running Tests
 Perform the tests using the bindings you created in the previous section.
